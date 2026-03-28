@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_composite_bentos",
+  "info": {
+    "displayName": "Bento",
+    "icon": "apps"
+  },
+  "options": {},
+  "attributes": {
+    "compositeConfig": {
+      "type": "component",
+      "component": "component.composite-config",
+      "repeatable": false,
+      "required": true
+    },
+    "bentoCards": {
+      "type": "component",
+      "component": "component.bento-card",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

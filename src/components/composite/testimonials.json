@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_composite_testimonials",
+  "info": {
+    "displayName": "Testimonials",
+    "icon": "discuss"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string"
+    },
+    "testimonials": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::testimonial.testimonial"
+    }
+  },
+  "config": {}
+}

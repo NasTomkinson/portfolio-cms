@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_composite_logo_clouds",
+  "info": {
+    "displayName": "LogoCloud",
+    "icon": "picture"
+  },
+  "options": {},
+  "attributes": {
+    "compositeConfig": {
+      "type": "component",
+      "component": "component.composite-config",
+      "repeatable": false,
+      "required": true
+    },
+    "media": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_composite_cta_sections",
+  "info": {
+    "displayName": "CTA Section",
+    "icon": "dashboard"
+  },
+  "options": {},
+  "attributes": {
+    "compositeConfig": {
+      "type": "component",
+      "component": "component.composite-config",
+      "repeatable": false,
+      "required": true
+    },
+    "content": {
+      "type": "blocks"
+    },
+    "media": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "ctas": {
+      "type": "component",
+      "component": "component.cta",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

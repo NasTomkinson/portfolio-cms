@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_component_hover_cards",
+  "info": {
+    "displayName": "Hover Cards"
+  },
+  "options": {},
+  "attributes": {
+    "compositeConfig": {
+      "type": "component",
+      "component": "component.composite-config",
+      "repeatable": false,
+      "required": true
+    },
+    "media": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  },
+  "config": {}
+}

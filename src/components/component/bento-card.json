@@ -1,0 +1,46 @@
+{
+  "collectionName": "components_component_bento_cards",
+  "info": {
+    "displayName": "BentoCard",
+    "icon": "apps"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string"
+    },
+    "subheading": {
+      "type": "string"
+    },
+    "cardLink": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::project.project"
+    },
+    "content": {
+      "type": "blocks"
+    },
+    "media": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "columns": {
+      "type": "integer"
+    },
+    "rows": {
+      "type": "integer"
+    },
+    "ctas": {
+      "type": "component",
+      "component": "component.cta",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

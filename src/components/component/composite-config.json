@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_component_composite_configs",
+  "info": {
+    "displayName": "Composite Config",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string"
+    },
+    "subheading": {
+      "type": "string"
+    },
+    "cta": {
+      "type": "component",
+      "component": "component.cta",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

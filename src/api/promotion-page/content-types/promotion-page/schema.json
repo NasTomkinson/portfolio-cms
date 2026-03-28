@@ -1,0 +1,46 @@
+{
+  "kind": "singleType",
+  "collectionName": "promotion_pages",
+  "info": {
+    "singularName": "promotion-page",
+    "pluralName": "promotion-pages",
+    "displayName": "Promotion Page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "heroHeading": {
+      "type": "string"
+    },
+    "heroSubheading": {
+      "type": "string"
+    },
+    "contentHeading": {
+      "type": "string"
+    },
+    "content": {
+      "type": "blocks"
+    },
+    "media": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "formHeading": {
+      "type": "string"
+    },
+    "formSubheading": {
+      "type": "string"
+    },
+    "brandColour": {
+      "type": "string"
+    }
+  }
+}

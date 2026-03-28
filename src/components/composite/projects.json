@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_composite_projects",
+  "info": {
+    "displayName": "Projects",
+    "icon": "code"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string"
+    },
+    "showProjects": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::project.project"
+    }
+  },
+  "config": {}
+}

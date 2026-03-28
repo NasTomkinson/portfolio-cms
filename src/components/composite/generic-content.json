@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_composite_generic_contents",
+  "info": {
+    "displayName": "Generic Content",
+    "icon": "pencil"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string"
+    },
+    "copy": {
+      "type": "blocks"
+    }
+  },
+  "config": {}
+}
