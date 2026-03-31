@@ -7,9 +7,9 @@ on:
     workflow_dispatch:
 
 env:
-    APP_DIR: /root/hrc/strapi
-    IMAGE_NAME: strapi-prod
-    CONTAINER_NAME: strapi-prod
+    APP_DIR: /root/portfolio/strapi
+    IMAGE_NAME: portfolio-strapi-prod
+    CONTAINER_NAME: portfolio-strapi-prod
 
 jobs:
     deploy:
@@ -45,6 +45,6 @@ jobs:
                       docker run -d \
                         --name ${{ env.CONTAINER_NAME }} \
                         --restart unless-stopped \
-                        -p 1337:1337 \
+                        -p 1338:1338 \
                         --env-file .env \
                         ${{ env.IMAGE_NAME }}
