@@ -1,0 +1,50 @@
+name: Deploy Strapi to VPS (Docker build on server)
+
+on:
+    push:
+        branches:
+            - main
+    workflow_dispatch:
+
+env:
+    APP_DIR: /root/hrc/strapi
+    IMAGE_NAME: strapi-prod
+    CONTAINER_NAME: strapi-prod
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4
+
+            - name: Sync project to VPS
+              uses: appleboy/scp-action@v0.1.7
+              with:
+                  host: ${{ secrets.VPS_HOST }}
+                  username: ${{ secrets.VPS_USER }}
+                  key: ${{ secrets.VPS_SSH }}
+                  source: "."
+                  target: ${{ env.APP_DIR }}
+
+            - name: Build and run on VPS
+              uses: appleboy/ssh-action@v1.0.3
+              with:
+                  host: ${{ secrets.VPS_HOST }}
+                  username: ${{ secrets.VPS_USER }}
+                  key: ${{ secrets.VPS_SSH }}
+                  script: |
+                      cd ${{ env.APP_DIR }}
+
+                      docker build -f Dockerfile.prod -t ${{ env.IMAGE_NAME }} .
+
+                      docker stop ${{ env.CONTAINER_NAME }} || true
+                      docker rm ${{ env.CONTAINER_NAME }} || true
+
+                      docker run -d \
+                        --name ${{ env.CONTAINER_NAME }} \
+                        --restart unless-stopped \
+                        -p 1337:1337 \
+                        --env-file .env \
+                        ${{ env.IMAGE_NAME }}
