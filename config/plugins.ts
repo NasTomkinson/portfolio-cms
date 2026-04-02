@@ -31,4 +31,12 @@ export default ({ env }) => ({
   seo: {
     enabled: true,
   },
+  upload: {
+    config: {
+      provider: 'uploads',
+      providerOptions: {
+        sizeLimit: 100000,
+      },
+    },
+  },
 });
