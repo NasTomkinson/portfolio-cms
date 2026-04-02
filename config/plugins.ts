@@ -31,13 +31,4 @@ export default ({ env }) => ({
   seo: {
     enabled: true,
   },
-  upload: {
-    config: {
-      providerOptions: {
-        localServer: {
-          maxage: 300000
-        },
-      },
-    },
-  },
 });
