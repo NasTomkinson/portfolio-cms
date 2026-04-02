@@ -73,6 +73,11 @@
       "relation": "oneToOne",
       "target": "api::testimonial.testimonial",
       "mappedBy": "project"
+    },
+    "seo": {
+      "type": "component",
+      "component": "shared.seo",
+      "repeatable": false
     }
   }
 }

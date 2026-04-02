@@ -1,4 +1,4 @@
-export default () => ({
+export default ({ env }) => ({
   email: {
     config: {
       provider: "nodemailer",
@@ -17,7 +17,18 @@ export default () => ({
       },
     },
   },
+  graphql: {
+    config: {
+      landingPage: env.bool("GRAPHQL_LANDING_PAGE", true),
+      apolloServer: {
+        introspection: env.bool("GRAPHQL_INTROSPECTION", true),
+      },
+    },
+  },
   navigation: {
     enabled: true,
-  }
+  },
+  seo: {
+    enabled: true,
+  },
 });
