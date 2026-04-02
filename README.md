@@ -58,4 +58,12 @@ Feel free to check out the [Strapi GitHub repository](https://github.com/strapi/
 
 ---
 
+## Persistent uploads with Docker
+
+If you deploy Strapi with Docker, mount the uploads folder to a host directory so media files survive rebuilds and redeploys.
+
+Set `STRAPI_UPLOADS_PATH=/root/porfolio/uploads` in your server `.env`. The compose file mounts that host directory into `/opt/app/public/uploads` inside the container.
+
+Make sure the host directory exists and is writable by the Strapi container user, otherwise uploads will still fail.
+
 <sub>🤫 Psst! [Strapi is hiring](https://strapi.io/careers).</sub>

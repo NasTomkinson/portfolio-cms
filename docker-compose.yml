@@ -23,7 +23,7 @@ services:
       - ./package-lock.json:/opt/package-lock.json
 
       - ./.env:/opt/app/.env
-      - ./public/uploads:/opt/app/public/uploads
+      - ${STRAPI_UPLOADS_PATH:-/root/porfolio/uploads}:/opt/app/public/uploads
     ports:
       - "1337:1337"
     networks:
