@@ -8,8 +8,8 @@ on:
 
 env:
     APP_DIR: /root/portfolio/strapi
-    IMAGE_NAME: portfolio-strapi-prod
-    CONTAINER_NAME: portfolio-strapi-prod
+    IMAGE_NAME: portfolio-strapi
+    CONTAINER_NAME: portfolio-strapi
 
 jobs:
     deploy:
