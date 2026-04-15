@@ -430,39 +430,6 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiFormSubmissionFormSubmission
-  extends Struct.CollectionTypeSchema {
-  collectionName: 'form_submissions';
-  info: {
-    displayName: 'Form Submissions';
-    pluralName: 'form-submissions';
-    singularName: 'form-submission';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    companyName: Schema.Attribute.String;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    emailAddress: Schema.Attribute.String;
-    firstName: Schema.Attribute.String;
-    lastName: Schema.Attribute.String;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::form-submission.form-submission'
-    > &
-      Schema.Attribute.Private;
-    message: Schema.Attribute.Text;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
 export interface ApiLandingPageLandingPage extends Struct.SingleTypeSchema {
   collectionName: 'landing_pages';
   info: {
@@ -609,7 +576,7 @@ export interface ApiTestimonialTestimonial extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    content: Schema.Attribute.String;
+    content: Schema.Attribute.Text;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1292,7 +1259,6 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
-      'api::form-submission.form-submission': ApiFormSubmissionFormSubmission;
       'api::landing-page.landing-page': ApiLandingPageLandingPage;
       'api::project.project': ApiProjectProject;
       'api::promotion-page.promotion-page': ApiPromotionPagePromotionPage;

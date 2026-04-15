@@ -1,4 +1,8 @@
 export default ({ env }) => ({
+  navigation: {
+    enabled: true,
+    graphql: { enabled: true },
+  },
   email: {
     config: {
       provider: "nodemailer",
@@ -46,9 +50,6 @@ export default ({ env }) => ({
         introspection: env.bool("GRAPHQL_INTROSPECTION", true),
       },
     },
-  },
-  navigation: {
-    enabled: true,
   },
   seo: {
     enabled: true,
