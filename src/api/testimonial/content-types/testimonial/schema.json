@@ -14,9 +14,6 @@
     "title": {
       "type": "string"
     },
-    "content": {
-      "type": "text"
-    },
     "project": {
       "type": "relation",
       "relation": "oneToOne",
@@ -25,6 +22,9 @@
     },
     "rating": {
       "type": "decimal"
+    },
+    "review": {
+      "type": "text"
     }
   }
 }
