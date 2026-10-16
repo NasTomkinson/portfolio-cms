@@ -1,0 +1,49 @@
+{
+  "kind": "collectionType",
+  "collectionName": "contact_submissions",
+  "info": {
+    "singularName": "contact-submission",
+    "pluralName": "contact-submissions",
+    "displayName": "Contact Submissions",
+    "description": "Enquiries received through the portfolio contact form"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "maxLength": 120
+    },
+    "email": {
+      "type": "email",
+      "required": true,
+      "maxLength": 254
+    },
+    "phone": {
+      "type": "string",
+      "maxLength": 40
+    },
+    "organisation": {
+      "type": "string",
+      "maxLength": 120
+    },
+    "message": {
+      "type": "text",
+      "required": true,
+      "maxLength": 5000
+    },
+    "source": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": ["new", "read", "replied", "spam"],
+      "default": "new",
+      "required": true
+    }
+  }
+}

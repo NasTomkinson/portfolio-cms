@@ -14,6 +14,21 @@
     },
     "content": {
       "type": "blocks"
+    },
+    "emailAddress": {
+      "type": "email",
+      "default": "hello@nastomkinson.com"
+    },
+    "phoneNumber": {
+      "type": "string"
+    },
+    "submitLabel": {
+      "type": "string",
+      "default": "Send enquiry"
+    },
+    "successMessage": {
+      "type": "string",
+      "default": "Thanks — your message has been sent. I'll be in touch soon."
     }
   },
   "config": {}

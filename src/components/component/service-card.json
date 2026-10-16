@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_component_service_cards",
+  "info": {
+    "displayName": "ServiceCard",
+    "icon": "briefcase"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string"
+    },
+    "subheading": {
+      "type": "text"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "solutionHeading": {
+      "type": "string"
+    },
+    "solutionCopy": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}

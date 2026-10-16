@@ -76,6 +76,21 @@ export interface ComponentHoverCards extends Struct.ComponentSchema {
   };
 }
 
+export interface ComponentServiceCard extends Struct.ComponentSchema {
+  collectionName: 'components_component_service_cards';
+  info: {
+    displayName: 'ServiceCard';
+    icon: 'briefcase';
+  };
+  attributes: {
+    heading: Schema.Attribute.String;
+    icon: Schema.Attribute.String;
+    solutionCopy: Schema.Attribute.Text;
+    solutionHeading: Schema.Attribute.String;
+    subheading: Schema.Attribute.Text;
+  };
+}
+
 export interface CompositeAccordions extends Struct.ComponentSchema {
   collectionName: 'components_composite_accordions';
   info: {
@@ -116,8 +131,15 @@ export interface CompositeContactForm extends Struct.ComponentSchema {
   };
   attributes: {
     content: Schema.Attribute.Blocks;
+    emailAddress: Schema.Attribute.Email &
+      Schema.Attribute.DefaultTo<'hello@nastomkinson.com'>;
     heading: Schema.Attribute.String;
+    phoneNumber: Schema.Attribute.String;
     subheading: Schema.Attribute.String;
+    submitLabel: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Send enquiry'>;
+    successMessage: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<"Thanks \u2014 your message has been sent. I'll be in touch soon.">;
   };
 }
 
@@ -271,6 +293,7 @@ declare module '@strapi/strapi' {
       'component.composite-config': ComponentCompositeConfig;
       'component.cta': ComponentCta;
       'component.hover-cards': ComponentHoverCards;
+      'component.service-card': ComponentServiceCard;
       'composite.accordions': CompositeAccordions;
       'composite.bento': CompositeBento;
       'composite.contact-form': CompositeContactForm;

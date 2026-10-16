@@ -7,17 +7,17 @@ export default ({ env }) => ({
     config: {
       provider: "nodemailer",
       providerOptions: {
-        host: "nastomkinson.com",
-        port: 465,
-        secure: true,
+        host: env("EMAIL_HOST", "nastomkinson.com"),
+        port: env.int("EMAIL_PORT", 465),
+        secure: env.bool("EMAIL_SECURE", true),
         auth: {
-          user: "hello@nastomkinson.com",
-          pass: "$aAb499040CD",
+          user: env("EMAIL_USER", "hello@nastomkinson.com"),
+          pass: env("EMAIL_PASSWORD"),
         },
       },
       settings: {
-        defaultFrom: "hello@nastomkinson.com",
-        defaultReplyTo: "hello@nastomkinson.com",
+        defaultFrom: env("EMAIL_FROM", "hello@nastomkinson.com"),
+        defaultReplyTo: env("EMAIL_REPLY_TO", "hello@nastomkinson.com"),
       },
     },
   },
