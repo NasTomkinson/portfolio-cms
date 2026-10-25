@@ -120,6 +120,28 @@ export interface ComponentServiceCard extends Struct.ComponentSchema {
   };
 }
 
+export interface ComponentTimelineItem extends Struct.ComponentSchema {
+  collectionName: 'components_component_timeline_items';
+  info: {
+    displayName: 'Timeline Item';
+    icon: 'clock';
+  };
+  attributes: {
+    description: Schema.Attribute.Blocks;
+    duration: Schema.Attribute.String;
+    heading: Schema.Attribute.String & Schema.Attribute.Required;
+    price: Schema.Attribute.Decimal &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 0;
+        },
+        number
+      >;
+    subheading: Schema.Attribute.String;
+  };
+}
+
 export interface CompositeAccordions extends Struct.ComponentSchema {
   collectionName: 'components_composite_accordions';
   info: {
@@ -324,6 +346,7 @@ declare module '@strapi/strapi' {
       'component.estimate-line-item': ComponentEstimateLineItem;
       'component.hover-cards': ComponentHoverCards;
       'component.service-card': ComponentServiceCard;
+      'component.timeline-item': ComponentTimelineItem;
       'composite.accordions': CompositeAccordions;
       'composite.bento': CompositeBento;
       'composite.contact-form': CompositeContactForm;

@@ -671,17 +671,6 @@ export interface ApiQuoteEstimateQuoteEstimate
       Schema.Attribute.DefaultTo<'estimate'>;
     introduction: Schema.Attribute.Blocks;
     issueDate: Schema.Attribute.Date & Schema.Attribute.Required;
-    lineItems: Schema.Attribute.Component<
-      'component.estimate-line-item',
-      true
-    > &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetMinMax<
-        {
-          min: 1;
-        },
-        number
-      >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -700,16 +689,16 @@ export interface ApiQuoteEstimateQuoteEstimate
     > &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'draft'>;
-    taxRate: Schema.Attribute.Decimal &
+    subheading: Schema.Attribute.String;
+    terms: Schema.Attribute.Blocks;
+    timeline: Schema.Attribute.Component<'component.timeline-item', true> &
+      Schema.Attribute.Required &
       Schema.Attribute.SetMinMax<
         {
-          max: 100;
-          min: 0;
+          min: 1;
         },
         number
-      > &
-      Schema.Attribute.DefaultTo<0>;
-    terms: Schema.Attribute.Blocks;
+      >;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

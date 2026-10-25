@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_component_timeline_items",
+  "info": {
+    "displayName": "Timeline Item",
+    "icon": "clock"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string",
+      "required": true
+    },
+    "subheading": {
+      "type": "string"
+    },
+    "description": {
+      "type": "blocks"
+    },
+    "duration": {
+      "type": "string"
+    },
+    "price": {
+      "type": "decimal",
+      "required": true,
+      "min": 0
+    }
+  },
+  "config": {}
+}

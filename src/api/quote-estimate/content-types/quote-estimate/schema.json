@@ -16,6 +16,9 @@
       "type": "string",
       "required": true
     },
+    "subheading": {
+      "type": "string"
+    },
     "slug": {
       "type": "uid",
       "targetField": "title",
@@ -66,9 +69,9 @@
     "introduction": {
       "type": "blocks"
     },
-    "lineItems": {
+    "timeline": {
       "type": "component",
-      "component": "component.estimate-line-item",
+      "component": "component.timeline-item",
       "repeatable": true,
       "required": true,
       "min": 1
@@ -87,12 +90,6 @@
       "type": "decimal",
       "default": 0,
       "min": 0
-    },
-    "taxRate": {
-      "type": "decimal",
-      "default": 0,
-      "min": 0,
-      "max": 100
     },
     "notes": {
       "type": "blocks"
