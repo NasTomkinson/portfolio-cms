@@ -624,6 +624,100 @@ export interface ApiPromotionPagePromotionPage extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiQuoteEstimateQuoteEstimate
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'quote_estimates';
+  info: {
+    description: 'Client-facing quotes and estimates';
+    displayName: 'Quotes & Estimates';
+    pluralName: 'quote-estimates';
+    singularName: 'quote-estimate';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    clientCompany: Schema.Attribute.String;
+    clientEmail: Schema.Attribute.Email;
+    clientName: Schema.Attribute.String & Schema.Attribute.Required;
+    content: Schema.Attribute.DynamicZone<
+      [
+        'composite.accordions',
+        'composite.bento',
+        'composite.logo-cloud',
+        'composite.cta-section',
+        'composite.contact-form',
+        'composite.generic-content',
+        'composite.projects',
+        'composite.testimonials',
+      ]
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    currency: Schema.Attribute.Enumeration<['GBP', 'EUR', 'USD']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'GBP'>;
+    discount: Schema.Attribute.Decimal &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 0;
+        },
+        number
+      > &
+      Schema.Attribute.DefaultTo<0>;
+    documentType: Schema.Attribute.Enumeration<['quote', 'estimate']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'estimate'>;
+    introduction: Schema.Attribute.Blocks;
+    issueDate: Schema.Attribute.Date & Schema.Attribute.Required;
+    lineItems: Schema.Attribute.Component<
+      'component.estimate-line-item',
+      true
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::quote-estimate.quote-estimate'
+    > &
+      Schema.Attribute.Private;
+    notes: Schema.Attribute.Blocks;
+    publishedAt: Schema.Attribute.DateTime;
+    reference: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
+    slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
+    status: Schema.Attribute.Enumeration<
+      ['draft', 'sent', 'accepted', 'expired']
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'draft'>;
+    taxRate: Schema.Attribute.Decimal &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 100;
+          min: 0;
+        },
+        number
+      > &
+      Schema.Attribute.DefaultTo<0>;
+    terms: Schema.Attribute.Blocks;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    validUntil: Schema.Attribute.Date;
+  };
+}
+
 export interface ApiTestimonialTestimonial extends Struct.CollectionTypeSchema {
   collectionName: 'testimonials';
   info: {
@@ -1322,6 +1416,7 @@ declare module '@strapi/strapi' {
       'api::landing-page.landing-page': ApiLandingPageLandingPage;
       'api::project.project': ApiProjectProject;
       'api::promotion-page.promotion-page': ApiPromotionPagePromotionPage;
+      'api::quote-estimate.quote-estimate': ApiQuoteEstimateQuoteEstimate;
       'api::testimonial.testimonial': ApiTestimonialTestimonial;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

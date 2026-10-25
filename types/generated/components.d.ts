@@ -58,6 +58,35 @@ export interface ComponentCta extends Struct.ComponentSchema {
   };
 }
 
+export interface ComponentEstimateLineItem extends Struct.ComponentSchema {
+  collectionName: 'components_component_estimate_line_items';
+  info: {
+    displayName: 'Estimate Line Item';
+    icon: 'bulletList';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    quantity: Schema.Attribute.Decimal &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 0;
+        },
+        number
+      > &
+      Schema.Attribute.DefaultTo<1>;
+    unitPrice: Schema.Attribute.Decimal &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 0;
+        },
+        number
+      >;
+  };
+}
+
 export interface ComponentHoverCards extends Struct.ComponentSchema {
   collectionName: 'components_component_hover_cards';
   info: {
@@ -292,6 +321,7 @@ declare module '@strapi/strapi' {
       'component.bento-card': ComponentBentoCard;
       'component.composite-config': ComponentCompositeConfig;
       'component.cta': ComponentCta;
+      'component.estimate-line-item': ComponentEstimateLineItem;
       'component.hover-cards': ComponentHoverCards;
       'component.service-card': ComponentServiceCard;
       'composite.accordions': CompositeAccordions;

@@ -1,0 +1,122 @@
+{
+  "kind": "collectionType",
+  "collectionName": "quote_estimates",
+  "info": {
+    "singularName": "quote-estimate",
+    "pluralName": "quote-estimates",
+    "displayName": "Quotes & Estimates",
+    "description": "Client-facing quotes and estimates"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
+    },
+    "documentType": {
+      "type": "enumeration",
+      "enum": [
+        "quote",
+        "estimate"
+      ],
+      "required": true,
+      "default": "estimate"
+    },
+    "reference": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "draft",
+        "sent",
+        "accepted",
+        "expired"
+      ],
+      "required": true,
+      "default": "draft"
+    },
+    "clientName": {
+      "type": "string",
+      "required": true
+    },
+    "clientCompany": {
+      "type": "string"
+    },
+    "clientEmail": {
+      "type": "email"
+    },
+    "issueDate": {
+      "type": "date",
+      "required": true
+    },
+    "validUntil": {
+      "type": "date"
+    },
+    "introduction": {
+      "type": "blocks"
+    },
+    "lineItems": {
+      "type": "component",
+      "component": "component.estimate-line-item",
+      "repeatable": true,
+      "required": true,
+      "min": 1
+    },
+    "currency": {
+      "type": "enumeration",
+      "enum": [
+        "GBP",
+        "EUR",
+        "USD"
+      ],
+      "required": true,
+      "default": "GBP"
+    },
+    "discount": {
+      "type": "decimal",
+      "default": 0,
+      "min": 0
+    },
+    "taxRate": {
+      "type": "decimal",
+      "default": 0,
+      "min": 0,
+      "max": 100
+    },
+    "notes": {
+      "type": "blocks"
+    },
+    "terms": {
+      "type": "blocks"
+    },
+    "content": {
+      "type": "dynamiczone",
+      "components": [
+        "composite.accordions",
+        "composite.bento",
+        "composite.logo-cloud",
+        "composite.cta-section",
+        "composite.contact-form",
+        "composite.generic-content",
+        "composite.projects",
+        "composite.testimonials"
+      ]
+    },
+    "seo": {
+      "type": "component",
+      "component": "shared.seo",
+      "repeatable": false
+    }
+  }
+}
